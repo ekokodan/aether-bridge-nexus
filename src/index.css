@@ -73,10 +73,15 @@
 
     --sidebar-border: 220 13% 91%;
 
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+  --sidebar-ring: 217.2 91.2% 59.8%;
 
-  .dark {
+  /* Custom animations and keyframes */
+  --animation-float: float 6s ease-in-out infinite;
+  --animation-pulse-glow: pulse-glow 2s ease-in-out infinite alternate;
+  --animation-neural: neural-flow 8s linear infinite;
+ }
+
+ .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
@@ -113,12 +118,6 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-}
-
-  /* Custom animations and keyframes */
-  --animation-float: float 6s ease-in-out infinite;
-  --animation-pulse-glow: pulse-glow 2s ease-in-out infinite alternate;
-  --animation-neural: neural-flow 8s linear infinite;
 }
 
 @keyframes float {
