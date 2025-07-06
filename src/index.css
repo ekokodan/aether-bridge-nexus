@@ -2,41 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ThinkBridge Futuristic Design System - All colors MUST be HSL */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Deep space background theme */
+    --background: 220 30% 6%;
+    --foreground: 210 30% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Holographic card system */
+    --card: 220 25% 10%;
+    --card-foreground: 210 25% 92%;
+    --card-glow: 195 100% 65%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 25% 12%;
+    --popover-foreground: 210 25% 90%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* AI-inspired primary colors */
+    --primary: 195 100% 65%;
+    --primary-foreground: 220 30% 8%;
+    --primary-glow: 195 100% 75%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Neural network secondary */
+    --secondary: 260 80% 65%;
+    --secondary-foreground: 220 30% 95%;
+    --secondary-glow: 260 80% 75%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Adaptive muted tones */
+    --muted: 220 20% 15%;
+    --muted-foreground: 210 15% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Learning path accent */
+    --accent: 285 85% 70%;
+    --accent-foreground: 220 30% 95%;
+    --accent-glow: 285 85% 80%;
 
-    --destructive: 0 84.2% 60.2%;
+    /* Alert system */
+    --destructive: 0 75% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Interface elements */
+    --border: 220 20% 20%;
+    --input: 220 25% 12%;
+    --ring: 195 100% 65%;
 
-    --radius: 0.5rem;
+    /* Futuristic gradients */
+    --gradient-neural: linear-gradient(135deg, hsl(195 100% 65% / 0.2), hsl(260 80% 65% / 0.2), hsl(285 85% 70% / 0.2));
+    --gradient-learning: linear-gradient(45deg, hsl(195 100% 65%), hsl(260 80% 65%));
+    --gradient-progress: linear-gradient(90deg, hsl(195 100% 65%), hsl(285 85% 70%));
+    --gradient-ai: radial-gradient(circle at center, hsl(195 100% 65% / 0.3), transparent 70%);
+
+    /* Animation and glow effects */
+    --shadow-neural: 0 0 30px hsl(195 100% 65% / 0.3);
+    --shadow-glow: 0 0 50px hsl(195 100% 65% / 0.4);
+    --shadow-card: 0 8px 40px hsl(220 30% 6% / 0.6);
+
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -94,6 +115,86 @@ All colors MUST be HSL.
   }
 }
 
+  /* Custom animations and keyframes */
+  --animation-float: float 6s ease-in-out infinite;
+  --animation-pulse-glow: pulse-glow 2s ease-in-out infinite alternate;
+  --animation-neural: neural-flow 8s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+  100% { box-shadow: 0 0 40px hsl(var(--primary) / 0.6); }
+}
+
+@keyframes neural-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Custom utility classes */
+@layer components {
+  .neural-background {
+    background: var(--gradient-neural);
+    background-size: 400% 400%;
+    animation: var(--animation-neural);
+  }
+
+  .floating-card {
+    animation: var(--animation-float);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border) / 0.3);
+    box-shadow: var(--shadow-card);
+  }
+
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .ai-assistant {
+    background: var(--gradient-ai);
+    backdrop-filter: blur(15px);
+  }
+
+  .learning-path-node {
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(var(--accent) / 0.2));
+    border: 2px solid hsl(var(--primary) / 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .learning-path-node:hover {
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.4);
+    transform: scale(1.05);
+  }
+
+  .shimmer-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.2), transparent);
+    animation: shimmer 2s infinite;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -101,5 +202,9 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background-image: 
+      radial-gradient(circle at 20% 80%, hsl(195 100% 65% / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(285 85% 70% / 0.05) 0%, transparent 50%);
+    min-height: 100vh;
   }
 }
